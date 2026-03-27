@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-agro-green: #2D5A27;
+  --color-agro-orange: #F27D26;
+  --color-agro-light: #F8FAF8;
+  --color-agro-dark: #0F172A;
+  --color-agro-dark-surface: #1E293B;
+  
+  --background-image-agro-gradient: linear-gradient(to right, #2D5A27, #F27D26);
+  --background-image-theme-gradient: linear-gradient(to right, #F27D26, #2D5A27);
+  --background-image-report-gradient: linear-gradient(to bottom right, #2D5A27, #FFFFFF);
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply bg-agro-light text-slate-900 font-sans transition-colors duration-300;
+  }
+  
+  html.dark body {
+    @apply bg-agro-dark text-slate-100;
+  }
+}
+
+@layer components {
+  .btn-gradient {
+    @apply bg-agro-gradient text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95;
+  }
+
+  .btn-theme {
+    @apply bg-theme-gradient text-white font-bold py-2 px-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 active:scale-90 flex items-center gap-2;
+  }
+  
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200 text-slate-600 hover:bg-agro-green/10 hover:text-agro-green;
+  }
+  
+  .sidebar-item-active {
+    @apply bg-agro-green text-white hover:bg-agro-green hover:text-white;
+  }
+}
